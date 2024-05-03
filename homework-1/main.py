@@ -11,9 +11,9 @@ conn = psycopg2.connect(
 cursor = conn.cursor()
 
 # Загрузка данных из файла north_data.csv
-employees = pd.read_csv('employees_data.csv')
-customers = pd.read_csv('customers_data.csv')
-orders = pd.read_csv('orders_data.csv')
+employees = pd.read_csv('north_data/employees_data.csv')
+customers = pd.read_csv('north_data/customers_data.csv')
+orders = pd.read_csv('north_data/orders_data.csv')
 # Запись данных в таблицу в базе данных
 for row in employees.itertuples(index=False, name=None):
     cursor.execute("INSERT INTO employees VALUES %s", (row,))
